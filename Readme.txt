@@ -1,0 +1,1 @@
+Metadados das alterações feitas para o desafio Salesforce.

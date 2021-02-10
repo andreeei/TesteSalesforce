@@ -1,0 +1,43 @@
+<aura:component controller="MetaController" implements="flexipage:availableForAllPageTypes" access="global" >
+    
+    <!-- attributes -->
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="draftValues" type="Object"/>
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    
+    <div class="slds-theme_default">
+        <div  class="slds-page-header">
+            <div class="slds-page-header__row">
+                <div class="slds-page-header__col-title">
+                    <div class="slds-media">
+                        <div style="height: 30px;" class="slds-media__body">
+                            <div class="slds-page-header__name">
+                                <div class="slds-page-header__name-title">
+                                    <h1>
+                                        <span class="slds-page-header__title slds-truncate" title="Visão contas sem meta">Visão contas sem meta</span>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- the container element determine the height of the datatable -->
+        <div style="height: 300px; margin-top: 5px">
+            <lightning:datatable
+                                 keyField="id"
+                                 data="{! v.data}"
+                                 columns="{! v.columns }"
+                                 errors="{! v.errors }"
+                                 draftValues="{! v.draftValues }"
+                                 oncellchange="{! c.oncellchange }"
+                                 onrowaction="{! c.handleRowAction }"
+                                 hideCheckboxColumn="true"
+                                 suppressBottomBar="true"/>
+        </div>
+    </div>
+    
+</aura:component>
